@@ -6,7 +6,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = ">=5.0.0"
 
-  name = "vpc-pennsylvania"
+  name = "vpc-connecticut"
   cidr = "10.2.0.0/16"
 
   create_igw = false
