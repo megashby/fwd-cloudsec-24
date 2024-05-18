@@ -1,0 +1,1 @@
+### This VPC will be connected to VPC New York via TGW
