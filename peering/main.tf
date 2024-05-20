@@ -32,5 +32,4 @@ module "vpc_peering" {
   update_timeout                            = "5m"
   delete_timeout                            = "10m"
 
-  # context = module.this.context
 }
