@@ -1,5 +1,13 @@
 resource "aws_route53_zone" "sqs_phz" {
   name = "sqs.${data.aws_region.current.name}.amazonaws.com"
+
+  vpc {
+    vpc_id = module.vpc.vpc_id
+  }
+
+  lifecycle {
+    ignore_changes = [vpc]
+  }
 }
 
 resource "aws_route53_record" "sqs_phz_record" {
