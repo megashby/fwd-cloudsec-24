@@ -35,7 +35,7 @@ module "vpc" {
   public_subnets  = ["10.1.3.0/24", "10.1.4.0/24"]
 
   private_subnet_tags = {
-    "Tier": "Private"
+    "Tier" : "Private"
   }
 
 }
