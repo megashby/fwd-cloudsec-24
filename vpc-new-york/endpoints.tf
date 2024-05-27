@@ -14,10 +14,26 @@ module "vpc_endpoints" {
     }
   }
   endpoints = {
+    ec2messages = {
+      service             = "ec2messages"
+      private_dns_enabled = false
+      subnet_ids          = module.vpc.private_subnets
+    }
     sqs = {
       service             = "sqs"
       private_dns_enabled = false
       subnet_ids          = module.vpc.private_subnets
     }
+    ssm = {
+      service             = "ssm"
+      private_dns_enabled = false
+      subnet_ids          = module.vpc.private_subnets
+    }
+    ssmmessages = {
+      service             = "ssmmessages"
+      private_dns_enabled = false
+      subnet_ids          = module.vpc.private_subnets
+    }
   }
+
 }
