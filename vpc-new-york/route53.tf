@@ -16,7 +16,6 @@ resource "aws_route53_record" "sqs_phz_record" {
   type    = "A"
 
   alias {
-    #TODO: Fix this is bad, and check that this is actually right
     name                   = module.vpc_endpoints.endpoints.sqs.dns_entry[0].dns_name
     zone_id                = module.vpc_endpoints.endpoints.sqs.dns_entry[0].hosted_zone_id
     evaluate_target_health = true
@@ -36,12 +35,12 @@ resource "aws_route53_zone" "ssm_phz" {
 }
 
 resource "aws_route53_record" "ssm_phz_record" {
-  zone_id = aws_route53_zone.sqs_phz.zone_id
-  name    = "ssmm.${data.aws_region.current.name}.amazonaws.com"
+  zone_id = aws_route53_zone.ssm_phz.zone_id
+  name    = "ssm.${data.aws_region.current.name}.amazonaws.com"
   type    = "A"
 
   alias {
-    #TODO: Fix this is bad, and check that this is actually right
+
     name                   = module.vpc_endpoints.endpoints.ssm.dns_entry[0].dns_name
     zone_id                = module.vpc_endpoints.endpoints.ssm.dns_entry[0].hosted_zone_id
     evaluate_target_health = true
@@ -61,7 +60,7 @@ resource "aws_route53_zone" "ssmmessages_phz" {
 }
 
 resource "aws_route53_record" "ssmmessages_phz_record" {
-  zone_id = aws_route53_zone.sqs_phz.zone_id
+  zone_id = aws_route53_zone.ssmmessages_phz.zone_id
   name    = "ssmmessages.${data.aws_region.current.name}.amazonaws.com"
   type    = "A"
 
