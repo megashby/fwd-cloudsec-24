@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "ec2_assume_role_policy" {
 }
 
 resource "aws_iam_role" "ec2" {
-  name               = "instance-role-new-jersey"
+  name               = "instance-role-connecticut"
   assume_role_policy = data.aws_iam_policy_document.ec2_assume_role_policy.json
 }
 
@@ -25,6 +25,6 @@ resource "aws_iam_role_policy_attachment" "sqs_policy" {
 }
 
 resource "aws_iam_instance_profile" "iam_profile" {
-  name = "ec2-profile-new-jersey"
+  name = "ec2-profile-connecticut"
   role = aws_iam_role.ec2.name
-}   
+}
