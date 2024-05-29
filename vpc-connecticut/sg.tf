@@ -1,6 +1,6 @@
 resource "aws_security_group" "ec2_sg" {
-  name        = "vpc-new-jersey-ec2-sg"
-  description = "Security group for EC2 in VPC new jersey"
+  name        = "vpc-connecticut-ec2-sg"
+  description = "Security group for EC2 in VPC connecticut"
   vpc_id      = module.vpc.vpc_id
 }
 
