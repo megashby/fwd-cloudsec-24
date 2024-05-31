@@ -8,7 +8,7 @@ data "aws_ami" "amzn-linux-2023-ami" {
   }
 }
 
-resource "aws_instance" "connecticut_ec2" {
+resource "aws_instance" "connecticut_ec2_private" {
   ami                    = data.aws_ami.amzn-linux-2023-ami.id
   iam_instance_profile   = aws_iam_instance_profile.iam_profile.name
   instance_type          = "t2.micro"
@@ -16,7 +16,7 @@ resource "aws_instance" "connecticut_ec2" {
   vpc_security_group_ids = [resource.aws_security_group.ec2_sg.id]
 
   tags = {
-    Name = "connecticut-ec2"
+    Name = "connecticut-ec2-private"
   }
 
 }
