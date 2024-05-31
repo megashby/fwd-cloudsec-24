@@ -21,6 +21,7 @@ module "vpc_endpoints" {
     }
     sqs = {
       service             = "sqs"
+      policy              = data.aws_iam_policy_document.sqs_policy_only_allow_pennsylvania_vpc.json
       private_dns_enabled = false
       subnet_ids          = module.vpc.private_subnets
     }
