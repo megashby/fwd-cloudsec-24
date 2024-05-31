@@ -39,3 +39,11 @@ module "vpc" {
   }
 
 }
+
+resource "aws_route" "connecticut-tgw-route" {
+  for_each = toset(module.vpc.private_route_table_ids)
+
+  route_table_id            = each.key
+  destination_cidr_block    = "10.0.0.0/16" //CIDR for vpc-new-york
+  transit_gateway_id        = "tgw-0146b27a407532707" // TGW-ID 
+}
