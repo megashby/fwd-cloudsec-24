@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "sqs_policy_allow_all_except_new_jersey_vpc" {
 
 data "aws_iam_policy_document" "sqs_policy_only_allow_pennsylvania_vpc" {
   statement {
-    effect    = "Deny"
+    effect    = "Allow"
     actions   = ["*"]
     resources = ["*"]
     principals {
@@ -36,7 +36,7 @@ data "aws_iam_policy_document" "sqs_policy_only_allow_pennsylvania_vpc" {
       identifiers = ["*"]
     }
     condition {
-      test     = "StringNotEquals"
+      test     = "StringEqualsIgnoreCase"
       variable = "aws:SourceVpc"
       values   = [data.aws_vpc.vpc_pennsylvania.id]
     }
