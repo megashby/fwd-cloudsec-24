@@ -43,8 +43,8 @@ module "vpc" {
 resource "aws_route" "new-york-tgw-route" {
   for_each = toset(module.vpc.private_route_table_ids)
 
-  route_table_id            = each.key
-  destination_cidr_block    = "10.2.0.0/16" //CIDR for vpc-connecticut
-  transit_gateway_id        = "tgw-0146b27a407532707" // TGW-ID 
+  route_table_id         = each.key
+  destination_cidr_block = "10.2.0.0/16"           //CIDR for vpc-connecticut
+  transit_gateway_id     = "tgw-0146b27a407532707" // TGW-ID 
 }
 
