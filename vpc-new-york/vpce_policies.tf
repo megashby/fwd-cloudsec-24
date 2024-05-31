@@ -9,7 +9,7 @@ data "aws_iam_policy_document" "sqs_policy_allow_all_except_new_jersey_vpc" {
     }
     condition {
       test     = "StringEqualsIgnoreCase"
-      variable = "aws:SourceVpc"
+      variable = "aws:Ec2InstanceSourceVpc"
       values   = [data.aws_vpc.vpc_new_jersey.id]
     }
   }
@@ -27,18 +27,18 @@ data "aws_iam_policy_document" "sqs_policy_allow_all_except_new_jersey_vpc" {
 
 
 data "aws_iam_policy_document" "sqs_policy_only_allow_pennsylvania_vpc" {
-  statement {
-    effect    = "Allow"
-    actions   = ["*"]
-    resources = ["*"]
-    principals {
-      type        = "*"
-      identifiers = ["*"]
+    statement {
+      effect    = "Allow"
+      actions   = ["*"]
+      resources = ["*"]
+      principals {
+        type        = "*"
+        identifiers = ["*"]
+      }
+      condition {
+        test     = "StringEqualsIgnoreCase"
+        variable = "aws:Ec2InstanceSourceVpc"
+        values   = [data.aws_vpc.vpc_pennsylvania.id]
+      }
     }
-    condition {
-      test     = "StringEqualsIgnoreCase"
-      variable = "aws:SourceVpc"
-      values   = [data.aws_vpc.vpc_pennsylvania.id]
-    }
-  }
 }
