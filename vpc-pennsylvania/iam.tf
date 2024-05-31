@@ -21,7 +21,7 @@ resource "aws_iam_role_policy_attachment" "ssm_policy" {
 
 resource "aws_iam_role_policy_attachment" "sqs_policy" {
   role       = aws_iam_role.ec2.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSQSReadOnlyAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSQSFullAccess"
 }
 
 resource "aws_iam_instance_profile" "iam_profile" {
