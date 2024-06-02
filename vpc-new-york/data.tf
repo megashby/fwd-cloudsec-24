@@ -9,6 +9,10 @@ data "aws_vpc" "vpc_new_jersey" {
   tags = { "Name" : "vpc-new-jersey" }
 }
 
+data "aws_vpc" "vpc_connecticut" {
+  tags = { "Name" : "vpc-connecticut" }
+}
+
 data "aws_vpc" "vpc_pennsylvania" {
   tags = { "Name" : "vpc-pennsylvania" }
 }
