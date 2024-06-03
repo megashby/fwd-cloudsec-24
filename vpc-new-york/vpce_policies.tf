@@ -77,7 +77,7 @@ data "aws_iam_policy_document" "sqs_policy_principal_tags" {
     condition {
       test     = "StringEqualsIgnoreCase"
       variable = "aws:Ec2InstanceSourceVpc"
-      values   = [data.aws_vpc.vpc_pennsylvania.id]
+      values   = [data.aws_vpc.vpc_connecticut.id]
     }
   }
   statement {
@@ -91,7 +91,7 @@ data "aws_iam_policy_document" "sqs_policy_principal_tags" {
     condition {
       test     = "StringEquals"
       variable = "aws:PrincipalTag/VPC_ID"
-      values   = [data.aws_vpc.vpc_pennsylvania.id]
+      values   = [data.aws_vpc.vpc_connecticut.id]
     }
     // to prevent other IAM principals (users, federated users, and accounts)
     condition {

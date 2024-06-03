@@ -13,10 +13,6 @@ data "aws_vpc" "vpc_connecticut" {
   tags = { "Name" : "vpc-connecticut" }
 }
 
-data "aws_vpc" "vpc_pennsylvania" {
-  tags = { "Name" : "vpc-pennsylvania" }
-}
-
 data "aws_subnets" "all_private_subnets" {
   tags = {
     Tier = "Private"
