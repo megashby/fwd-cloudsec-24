@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "sqs_policy_allow_all_except_connecticut_vpc" {
+data "aws_iam_policy_document" "sqs_policy_allow_all_except_ec2s_connecticut_vpc" {
   statement {
     effect    = "Deny"
     actions   = ["*"]
@@ -64,6 +64,7 @@ data "aws_iam_policy_document" "allow_from_only_private_subnets" {
     }
   }
 }
+
 
 data "aws_iam_policy_document" "sqs_policy_principal_tags" {
   statement {
