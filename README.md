@@ -44,4 +44,4 @@ or the condition
 ```
 (in the deny-listing examples)
 
-However, in true production environments, these are required to allow AWS services to use other AWS services protected by VPC Endpoints. Please see [AWS Blog Series on Data Perimeters](https://aws.amazon.com/blogs/security/establishing-a-data-perimeter-on-aws-allow-only-trusted-identities-to-access-company-data/)
+However, in true production environments, these are required to allow AWS services to use other AWS services protected by VPC Endpoints. Please see [AWS Blog Series on Data Perimeters](https://aws.amazon.com/blogs/security/establishing-a-data-perimeter-on-aws-allow-only-trusted-identities-to-access-company-data/) for more details on why this is necessary (or find me in real life and I will do my best to regurgitate the blog to you)
