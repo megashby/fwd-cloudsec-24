@@ -25,24 +25,6 @@ data "aws_iam_policy_document" "sqs_policy_allow_all_except_ec2s_connecticut_vpc
   }
 }
 
-
-# data "aws_iam_policy_document" "sqs_policy_only_allow_pennsylvania_vpc" {
-#   statement {
-#     effect    = "Allow"
-#     actions   = ["*"]
-#     resources = ["*"]
-#     principals {
-#       type        = "*"
-#       identifiers = ["*"]
-#     }
-#     condition {
-#       test     = "StringEqualsIgnoreCase"
-#       variable = "aws:Ec2InstanceSourceVpc"
-#       values   = [data.aws_vpc.vpc_pennsylvania.id]
-#     }
-#   }
-# }
-
 data "aws_iam_policy_document" "allow_from_only_private_subnets" {
   statement {
     effect    = "Allow"
@@ -53,12 +35,12 @@ data "aws_iam_policy_document" "allow_from_only_private_subnets" {
       identifiers = ["*"]
     }
     condition {
-      test     = "ForAnyValue:StringEqualsIgnoreCase"
+      test     = "StringEqualsIgnoreCase"
       variable = "aws:Ec2InstanceSourceVpc"
       values   = data.aws_vpc.vpc[*].id
     }
     condition {
-      test     = "ForAnyValue:IpAddress"
+      test     = "IpAddress"
       variable = "aws:Ec2InstanceSourcePrivateIPv4"
       values   = data.aws_subnet.subnet[*].cidr_block
     }
