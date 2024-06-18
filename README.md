@@ -17,6 +17,11 @@ All projects cannot be applied in parallel. As best practice please follow the b
 5. Uncomment data blocks and resources in `vpc-new-jersey` and `vpc-connecticut` and deploy.
 6. The `sqs` project can be deployed at any point.
 
+>
+>       Deploying this infrastructure isn't an art, and it isn't a science. It's mostly just a mess.
+
+
+
 ###### VPC Endpoint over-simplicity
 The VPC Endpoint policies do not contain the block:
 ```
