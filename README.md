@@ -20,6 +20,10 @@ All projects cannot be applied in parallel. As best practice please follow the b
 ###### Changing the VPCE Policy
 In the demo video, I didn't show the act of changing the VPC endpoint policy and deploying it for the sake of time. All policies are stored in the file `vpc-new-york/vpce_policies.tf`. To replicate the demo in your environment, make sure to change the sqs' endpoint policy in `vpc-new-york/endpoints.tf`
 
+>
+>       "Deploying this infrastructure isn't an art, and it isn't a science. It's mostly just a mess." - Meg
+
+
 ###### VPC Endpoint over-simplicity
 The VPC Endpoint policies do not contain the block:
 ```
