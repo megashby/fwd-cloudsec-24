@@ -7,7 +7,7 @@ This repo contains the reference architecture for my 2024 fwd:cloudsec session, 
 The VPC `vpc-new-york` contains the centralized VPC Endpoints. `vpc-new-jersey` is connected to `vpc-new-york` through VPC Peering, and `vpc-connecticut` is connected to `vpc-new-york` through Transit Gateway.
 
 ## Fair Warnings
-###### Deploying through terraform
+###### Deploying the base infrastrcuture through terraform
 
 All projects cannot be applied in parallel. As best practice please follow the below ordering:
 1. deploy the `vpc-new-york` project first with the `data.tf` file & blocks commented out.
@@ -17,11 +17,11 @@ All projects cannot be applied in parallel. As best practice please follow the b
 5. Uncomment data blocks and resources in `vpc-new-jersey` and `vpc-connecticut` and deploy.
 6. The `sqs` project can be deployed at any point.
 
-
+###### Changing the VPCE Policy
+In the demo video, I didn't show the act of changing the VPC endpoint policy and deploying it for the sake of time. All policies are stored in the file `vpc-new-york/vpce_policies.tf`. To replicate the demo in your environment, make sure to change the sqs' endpoint policy in `vpc-new-york/endpoints.tf`
 
 >
 >       "Deploying this infrastructure isn't an art, and it isn't a science. It's mostly just a mess." - Meg
-
 
 
 ###### VPC Endpoint over-simplicity
