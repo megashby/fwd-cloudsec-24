@@ -11,10 +11,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "fwd-cloudsec-remote-state"
+    bucket         = "" #configure your provider here
     key            = "connectivity/terraform.tfstate"
     region         = "us-west-2"
     encrypt        = true
-    dynamodb_table = "fwd-cloudsec-locks"
+    dynamodb_table = "" #configure your provider here
   }
 }
